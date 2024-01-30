@@ -26,17 +26,17 @@ Nota: Si el personaje no se encuentra, se enviará un mensaje de error con estad
 **Todos los datos serán res.json() para crear la segunda parte del ejercicio**
 
 ## Vamos a consumir la API
-tendremos que crear otro archicvo para crear nuestro front y apunte hacia nuestra API de Rick and Morty
+Tendremos que crear otro archivo para crear nuestro front y apunte hacia nuestra API de Rick and Morty
 - Haremos un front sencillo en otro documento con HTML, CSS y JS
 - El HTML tendrá un input de búsqueda por nombre hacia nuestra api levantada 
 - Recibiremos los datos del personaje.
   - Name
   - Status
   - Species
-  - gender
-  - origin
-  - image
+  - Gender
+  - Origin
+  - Image
 
 ## RECORDATORIO
 
-CORS anda detrá de nosotros... si no funicona la aplicación recordad que puede ser por un problema de CORS, abramos el inspector para ver los fallos y adelantemonos a ellos.
+CORS anda detrás de nosotros... si no funicona la aplicación recordad que puede ser por un problema de CORS, abramos el inspector para ver los fallos y adelantemonos a ellos.
