@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>CORS: Rick and Morty</title>
+    <title>CORS - Rick and Morty</title>
 </head>
+
 <body>
     <main>
-        <h1>Rick and Morty</h1>
-        <!-- Input de búsqueda hacia nuestra API -->
+        <header class="header">
+            <img src="./assets/randm.png" alt="Rick and Morty" class="logo"/>
+        </header>
+        <div class="search">
+            <!-- <label for="characterName">Introduce el nombre del personaje</label> -->
+            <input type="text" id="characterName" placeholder="Rick" />
+            <button class="btn" onclick="getCharacterInfo()">Buscar personaje</button>
+        </div>
+        <div id="top"></div>
+        <ul class="characterInfo" id="characterInfo"></ul>
+        <a href="#top"><img class="up" src="./assets/arrow.svg" alt="Subir"></a>
     </main>
     <script src="./js/script.js"></script>
 </body>
+
 </html>

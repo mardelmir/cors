@@ -3,17 +3,15 @@ const app = express()
 const axios = require('axios')
 const cors = require('cors')
 
-//const { getCharacters } = require('./characters')
-
 app.use(cors())
 
 app.get('/', (req, res) => res.redirect('/characters'))
 
 app.get('/characters', async (req, res) => {
     try {
+        const characters = []
         let page = 1
-        const characters = [] 
-        
+
         while (page < 43) {
             const url = `https://rickandmortyapi.com/api/character?page=${page}`
             const response = await axios.get(url)
@@ -33,7 +31,6 @@ app.get('/characters', async (req, res) => {
             })
             page++
         }
-
         res.json(characters)
     }
     catch (error) {
@@ -42,44 +39,8 @@ app.get('/characters', async (req, res) => {
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.get('/characters/:name', async (req, res) => {
     const characterName = req.params.name
-    const url = `https://rickandmortyapi.com/api/character/`
 
     try { }
     catch (error) {
