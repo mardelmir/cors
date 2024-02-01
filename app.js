@@ -6,7 +6,6 @@ const cors = require('cors')
 let allCharacters = []
 
 app.use(cors())
-app.get('/', (req, res) => res.redirect('/characters'))
 
 app.get('/characters', async (req, res) => {
     try {

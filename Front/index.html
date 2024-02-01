@@ -11,12 +11,15 @@
 <body>
     <main>
         <header class="header">
-            <img src="./assets/randm.png" alt="Rick and Morty" class="logo"/>
+            <div><img src="./assets/randm.png" alt="Rick and Morty" class="logo" /></div>
+            <div class="search">
+                <input type="text" id="characterName" placeholder="Rick" required/>
+                <button class="btn" onclick="getCharacterInfo()">Buscar personaje</button>
+                <button class="btn all" onclick="allCharacters()">Todos los personajes</button>
+                <div id="found"></div>
+            </div>
         </header>
-        <div class="search">
-            <input type="text" id="characterName" placeholder="Rick" />
-            <button class="btn" onclick="getCharacterInfo()">Buscar personaje</button>
-        </div>
+
         <div id="top"></div>
         <ul class="characterInfo" id="characterInfo"></ul>
         <a href="#top"><img class="up" src="./assets/arrow.svg" alt="Subir"></a>

@@ -1,6 +1,12 @@
 const characterInfo = document.getElementById('characterInfo')
+const found = document.getElementById('found')
+const characterName = document.getElementById('characterName')
 
 const allCharacters = () => {
+    characterName.value = ''
+    characterInfo.innerHTML = ''
+    found.innerHTML = '<span class="warning"><b>¡¡Atención!!</b> puede tardar unos segundos en cargar</span>'
+
     fetch('http://localhost:3000/characters')
         .then(response => response.json())
         .then(data => printCharacter(data))
@@ -8,17 +14,25 @@ const allCharacters = () => {
 }
 
 const getCharacterInfo = () => {
-    const nameInput = document.getElementById('characterName')
-    const name = nameInput.value.trim()
-    console.log(name)
+    const characterValue = document.getElementById('characterName').value
 
-    fetch(`http://localhost:3000/characters/${name}`)
-        .then(response => response.json())
-        .then(data => printCharacter(data))
-        .catch(error => characterInfo.innerHTML = `<p>Imposible acceder al personaje</p>`)
+    if (characterValue.length === 0) {
+        characterInfo.innerHTML = 'El cuadro de búsqueda está vacío, introduce un nombre para buscar'
+        found.innerHTML = ''
+    } else {
+        const name = characterValue.trim()
+        fetch(`http://localhost:3000/characters/${name}`)
+            .then(response => response.json())
+            .then(data => {
+                printCharacter(data)
+                found.innerHTML = `Número de personajes encontrados: <span>${data.length}</span>`
+            })
+            .catch(error => characterInfo.innerHTML = `<p>Imposible acceder al personaje</p>`)
+    }
 }
 
 const printCharacter = (data) => {
+    characterInfo.innerHTML = ''
     data.forEach(character => {
         const template = `
         <li class="card">
@@ -31,6 +45,5 @@ const printCharacter = (data) => {
         </li>`
         characterInfo.innerHTML += template
     })
+    found.innerHTML = ''
 }
-
-allCharacters()
