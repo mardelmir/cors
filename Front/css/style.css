@@ -132,7 +132,8 @@ table {
 }
 
 /* -- Fin reset -- */
-.body {
+
+* {
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -151,12 +152,13 @@ table {
 .search {
     position: fixed;
     display: flex;
+    justify-content: center;
     gap: 7px;
-    padding: 15px;
     width: 100%;
+    padding: 12px;
+    margin: 106px 0px 0px 10px;
     background-color: white;
     box-shadow: 0px 5px 5px 0px white;
-    margin: 106px 0px 0px 10px;
 }
 
 input {
@@ -165,17 +167,22 @@ input {
     border-radius: 3px;
 }
 
-input :focus {
+input:focus {
     outline: none;
-    border: 1.25px solid #abffdf;
+    border: 1.8px solid #01b0c8;
 }
 
 .btn {
     padding: 7px;
-    background-color: #01b0c8;
-    color: white;
     border: none;
     border-radius: 3px;
+    background-color: #01b0c8;
+    color: white;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #007f8f;
 }
 
 .characterInfo {
@@ -190,8 +197,14 @@ input :focus {
     padding: 10px;
     border: .95px solid #01b0c8;
     border-radius: 5px;
+    line-height: 1.3em;
 }
 
+span {
+    font-weight: 600;
+}
+
+/* Revisar */
 a {
     color: #01b0c8;
     text-decoration: none;
@@ -206,4 +219,8 @@ a {
     border-radius: 50px;
     background-color: #BD4A31;
     filter: invert();
+}
+
+.up:hover {
+    box-shadow: 0px 0px 7px 5px #540020;
 }

@@ -3,8 +3,9 @@ const app = express()
 const axios = require('axios')
 const cors = require('cors')
 
-app.use(cors())
+let allCharacters = []
 
+app.use(cors())
 app.get('/', (req, res) => res.redirect('/characters'))
 
 app.get('/characters', async (req, res) => {
@@ -31,21 +32,26 @@ app.get('/characters', async (req, res) => {
             })
             page++
         }
-        res.json(characters)
+
+        allCharacters = characters
+        res.json(allCharacters)
     }
     catch (error) {
         res.status(404).json({ error: 'Error al recoger los datos' })
     }
 })
 
+app.get('/characters/:name', (req, res) => {
+    const name = req.params.name
+    const pattern = name.replace(' ', '').toLowerCase()
 
-app.get('/characters/:name', async (req, res) => {
-    const characterName = req.params.name
+    const found = allCharacters.filter(character => {
+        const formattedName = character.name.replace(' ', '').toLowerCase()
+        return formattedName.includes(pattern)
+    })
 
-    try { }
-    catch (error) {
-        res.status(404).json({ error: "Personaje no encontrado" })
-    }
+    res.json(found)
+    // found.length === 0 ? res.json(found) : res.status(404).json({ error: "Personaje no encontrado" })
 })
 
 app.listen(3000, () => {
