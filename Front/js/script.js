@@ -25,7 +25,7 @@ const getCharacterInfo = () => {
             .then(response => response.json())
             .then(data => {
                 data.error
-                    ? characterInfo.innerHTML = `<h2>Error 404: Personaje no encontrado</h2>`
+                    ? ((found.innerHTML = ""), (characterInfo.innerHTML = `<h2>Error 404: Personaje no encontrado</h2>`))
                     : (printCharacter(data), (found.innerHTML = `Número de personajes encontrados: <span>${data.length}</span>`))
             })
             .catch(error => characterInfo.innerHTML = `<p>Imposible acceder al personaje</p>`)
