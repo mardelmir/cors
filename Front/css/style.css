@@ -201,6 +201,11 @@ input:focus {
     color: #007f8f;
 }
 
+h2 {
+    font-size: 30px;
+    color: red;
+}
+
 .warning {
     color: red;
 }
@@ -209,6 +214,7 @@ input:focus {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 15px;
     padding-top: 175px;
 }

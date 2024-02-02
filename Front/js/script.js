@@ -5,7 +5,7 @@ const characterName = document.getElementById('characterName')
 const allCharacters = () => {
     characterName.value = ''
     characterInfo.innerHTML = ''
-    found.innerHTML = '<span class="warning"><b>¡¡Atención!!</b> puede tardar unos segundos en cargar</span>'
+    found.innerHTML = '<span class="warning">¡¡Atención!! puede tardar unos segundos en cargar</span>'
 
     fetch('http://localhost:3000/characters')
         .then(response => response.json())
@@ -24,8 +24,9 @@ const getCharacterInfo = () => {
         fetch(`http://localhost:3000/characters/${name}`)
             .then(response => response.json())
             .then(data => {
-                printCharacter(data)
-                found.innerHTML = `Número de personajes encontrados: <span>${data.length}</span>`
+                data.error
+                    ? characterInfo.innerHTML = `<h2>Error 404: Personaje no encontrado</h2>`
+                    : (printCharacter(data), (found.innerHTML = `Número de personajes encontrados: <span>${data.length}</span>`))
             })
             .catch(error => characterInfo.innerHTML = `<p>Imposible acceder al personaje</p>`)
     }
